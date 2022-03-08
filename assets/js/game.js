@@ -1,22 +1,55 @@
-// this creates a function named "fight"
-
+// logging player info as variables
 var playerName = window.prompt("What is your robot's name?");
+var playerHealth = 100;
+var playerAttack = 10;
 
-// What is this? It outputs a log when using inspect in the browser and going to console, tells you what line of your code was used
-console.log(playerName);
+//You can also log multiple values at onece like this
+console.log(playerName, playerAttack, playerHealth);
 
-console.log("This logs a string, good for leaving yourself a message");
+// logging npc info as variables
+var enemyName = "Roberto";
+var enemyHealth = 50;
+var enemtAttack = 12;
 
-// this will do math and log 20
-console.log(10 + 10);
+// create function
+var fight = function() {
+    // Alert players that they are starting the round
+    window.alert("Welcome to Robot Gladiators!");
 
-// adding a string plus the var (user input)
-console.log("Our robot's name is " + playerName);
+    // Subtract the value of 'playerAttack' from the value of 'enemyHealth' and use that result to update the value in the 'enemyHealth' variable
+    enemyHealth = enemyHealth - playerAttack;
 
-function fight() {
-    window.alert("The fight has begun!");
-}
+    // Log a resulting message to the console so we know that it worked
+    console.log(
+        playerName + " attacked " + enemyName + ". " + enemyName + " now has " + enemyHealth + " health remaining."
+    );
 
-// this calls the function named "fight"
+    // Check enemy's health
+    if (enemyHealth <= 0) {
+        window.alert(enemyName + " has died!");
+    }
+    else {
+        window.alert(enemyName + " still has " + enemyHealth + " health left.");
+    }
 
-// fight();
+    // Subtract the value of 'enemyAttack' from the value of 'playerHealth' and use that result to update the value in the 'playerHealth' variable
+    playerHealth = playerHealth - enemtAttack;
+
+    // Log a resulting message to the console so we know that it worked
+    console.log(
+        enemyName + " attacked " + playerName + ". " + playerName + " now has " + playerHealth + " health remaining."
+    );
+
+    // Check players health
+    if (playerHealth <= 0) {
+        window.alert(playerName + " has died!");
+    }
+    else {
+        window.alert(playerName + " still has " + playerHealth + " health left.");
+    }
+
+};
+
+// execute function
+fight();
+
